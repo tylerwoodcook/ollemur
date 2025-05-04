@@ -1,0 +1,16 @@
+{
+  "name": "ollama-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "marked": "^15.0.11",
+    "parcel": "^2.14.4"
+  }
+}
