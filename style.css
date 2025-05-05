@@ -21,20 +21,39 @@ body {
   padding: 0;
 }
 
+/* ---------------------- */
+/* --- HEADER SECTION --- */
+/* ---------------------- */
 header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--gray-15);
   color: var(--gray-100);
-  padding: 8px 24px;
+  padding: 16px 24px;
 }
 header h1 {
   font-size: 24px 44px 24px 24px;
+  margin: 0;
+}
+#model-name-label {
+  color: var(--gray-70);
+  margin: 0 0 4px 0;
+  font-size: 12px;
+}
+#model-name {
+  color: var(--gray-100);
+  margin: 0;
+  font-size: 14px;
 }
 
+/* -------------------- */
+/* --- CHAT SECTION --- */
+/* -------------------- */
 #chat-area {
   margin: 24px;
 }
-
-
 #chat-log {
   box-sizing: border-box;
   width: 100%;
@@ -45,31 +64,24 @@ header h1 {
   overflow-y: scroll; /* Enable scrolling */
   border-radius: var(--radius-small);
 }
-/* Style the scrollbar track */
 #chat-log::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-/* Style the scrollbar handle (the part the user drags) */
 #chat-log::-webkit-scrollbar-thumb {
   background-color: var(--gray-90);
   border-radius: var(--radius-med);
 }
-/* Style the scrollbar handle on hover */
 #chat-log::-webkit-scrollbar-thumb:hover {
   background-color: var(--gray-70);
 }
-/* Style the scrollbar track */
 #chat-log::-webkit-scrollbar-track {
   background-color: var(--gray-100);
   border-radius: 0 var(--radius-small) var(--radius-small) 0;
 }
-/* Optional: Style the scrollbar corner (the space between the horizontal and vertical scrollbar) */
 #chat-log::-webkit-scrollbar-corner {
   background-color: transparent;
 }
-
-
 #prompt-area {
   margin-top: 20px;
   display: flex;
@@ -77,7 +89,6 @@ header h1 {
   flex-direction: column;
   width: 100%;
 }
-
 #prompt-input {
   box-sizing: border-box;
   width: 100%;
@@ -88,7 +99,6 @@ header h1 {
   border-radius: var(--radius-small);
   background-color: var(--gray-100);
 }
-
 #send-button {
   padding: 8px 24px;
   margin: 16px 0;

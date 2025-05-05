@@ -3,6 +3,7 @@ import { marked } from 'marked';
 const chatLog = document.getElementById("chat-log");
 const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
+const currentModel = 'gemma3:4b';
 
 // Function to fetch data from the Ollama API
 async function getResponse() {
@@ -15,7 +16,7 @@ async function getResponse() {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          model: 'gemma3:4b',
+          model: currentModel,
           prompt: prompt,
           stream: true
       })
@@ -77,3 +78,10 @@ promptInput.addEventListener("keyup", function (event) {
         getResponse();
     }
 });
+
+// Function to display current model name
+function displayCurrentModel() {
+    const modelContainer = document.getElementById('model-name');
+    modelContainer.innerText = currentModel;
+}
+displayCurrentModel();
