@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open"
+    "start": "parcel index.html --open",
+    "build": "npx parcel build index.html"
   },
   "keywords": [],
   "author": "",
