@@ -4,7 +4,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --open",
-    "build": "npx parcel build index.html"
+    "build": "npx parcel build index.html",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "description": "",
   "dependencies": {
     "marked": "^15.0.11",
-    "parcel": "^2.14.4"
+    "parcel": "^2.14.4",
+    "prettier": "^3.5.3"
   }
 }
