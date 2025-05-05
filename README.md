@@ -9,3 +9,6 @@ You have to have Ollama installed to run Ollemur. In the future, I hope to strea
 - `cd` into the app's folder and run `npm run start` - this should start the parcel server at `http://localhost:1234`
 - This app currently uses the `gemma3:4b` LLM, so that will need to be installed via Ollama.
 - Once both of those localhosts are running, you should be able to interact with the chatbot at `http://localhost:1234`
+
+## Dev Notes
+- You can use `npx parcel build index.html` to build/minify the app files.
