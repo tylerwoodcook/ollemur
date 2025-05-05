@@ -11,4 +11,4 @@ You have to have Ollama installed to run Ollemur. In the future, I hope to strea
 - Once both of those localhosts are running, you should be able to interact with the chatbot at `http://localhost:1234`
 
 ## Dev Notes
-- You can use `npx parcel build index.html` to build/minify the app files.
+- You can use `npx parcel build index.html` to build/minify the app files, tree-shake unused code, compress assets and hash filenames for cache busting.
