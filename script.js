@@ -6,7 +6,7 @@ let marked;
 if (window.location.hostname === "chat.linepup.com") {
   // Load marked from CDN
   const module = await import(
-    "https://cdn.jsdelivr.net/npm/marked/marked.esm.js"
+    "https://cdn.jsdelivr.net/npm/marked@15.0.11/lib/marked.umd.min.js"
   );
   marked = module.marked;
 } else {
