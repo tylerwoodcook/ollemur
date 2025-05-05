@@ -1,4 +1,4 @@
-4271
+4275
 70C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\is-number133908762044061971 1
 101C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\caniuse-lite\data\features\pdf-viewer.js133908690413945462 0
 128C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages133908690425938178 0
@@ -12,7 +12,7 @@
 102C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\electron-to-chromium\chromium-versions.js133908690380134187 0
 67C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\@babel133908761851959021 1
 110C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\Makefile133908690385105307 0
-52C:\Users\twood\Documents\GitHub\ollama-frontend\dist133908871615955188 1
+52C:\Users\twood\Documents\GitHub\ollama-frontend\dist133908886173987557 1
 110C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\caniuse-lite\data\features\css-read-only-write.js133908690404603342 0
 107C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\electron-to-chromium\full-chromium-versions.js133908690380624294 0
 85C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\postcss-value-parser\lib133908762060545774 1
@@ -1539,6 +1539,7 @@
 103C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\@parcel\core\lib\requests\TargetRequest.js133908690410134602 0
 132C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages.ps1133908690425928171 0
 95C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\@parcel\reporter-cli\src\render.js133908690406243719 0
+85C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.7662edfa.css.map133908886173977234 0
 113C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\msgpackr-extract\node_modules\detect-libc\index.d.ts133908690395287614 0
 123C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\010-introduction.md133908690388666115 0
 115C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\msgpackr-extract\node_modules\detect-libc\package.json133908690395137581 0
@@ -4267,6 +4268,9 @@
 88C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\.bin\update-browserslist-db133908690425958177 0
 92C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\.bin\update-browserslist-db.cmd133908690425958177 0
 92C:\Users\twood\Documents\GitHub\ollama-frontend\node_modules\.bin\update-browserslist-db.ps1133908690425948174 0
-63C:\Users\twood\Documents\GitHub\ollama-frontend\dist\index.html133908870558733880 0
+63C:\Users\twood\Documents\GitHub\ollama-frontend\dist\index.html133908886173753669 0
+80C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.345c975e.js133908886173790192 0
+84C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.345c975e.js.map133908886173977234 0
 85C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.3a01df49.css.map133908871615945185 0
 80C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.3c14d121.js133908870559053953 0
+81C:\Users\twood\Documents\GitHub\ollama-frontend\dist\ollama-frontend.7662edfa.css133908886173784945 0
