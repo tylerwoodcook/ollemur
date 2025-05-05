@@ -3363,7 +3363,8 @@ ${frame.code}`;
                           });
                         const ret = hooksFunc.call(hooks, arg);
                         return prevHook.call(hooks, ret);
-                      }; // @ts-expect-error cannot type hook function dynamically
+                      };
+                    // @ts-expect-error cannot type hook function dynamically
                     else
                       hooks[hooksProp] = (...args) => {
                         let ret = hooksFunc.apply(hooks, args);

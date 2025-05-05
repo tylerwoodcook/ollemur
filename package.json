@@ -4,8 +4,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --open",
-    "build": "npx parcel build index.html",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build": "npm run format && npx parcel build index.html"
   },
   "keywords": [],
   "author": "",
