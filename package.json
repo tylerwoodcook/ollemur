@@ -1,19 +1,19 @@
 {
-  "name": "ollama-frontend",
-  "version": "1.0.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open",
-    "format": "prettier --write .",
-    "build": "npm run format && npx parcel build index.html"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "marked": "^15.0.11",
-    "parcel": "^2.14.4",
-    "prettier": "^3.5.3"
-  }
+    "name": "ollama-frontend",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "parcel index.html --open",
+        "format": "prettier --write .",
+        "build": "npm run format && npx parcel build index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "marked": "^15.0.11",
+        "parcel": "^2.14.4",
+        "prettier": "^3.5.3"
+    }
 }
