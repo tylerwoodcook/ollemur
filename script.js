@@ -1,19 +1,4 @@
-// import { marked } from "marked";
-
-let marked;
-
-// Determine if we're on chat.linepup.com
-if (window.location.hostname === "chat.linepup.com") {
-  // Load marked from CDN
-  const module = await import(
-    "https://cdn.jsdelivr.net/npm/marked@15.0.11/lib/marked.umd.min.js"
-  );
-  marked = module.marked;
-} else {
-  // Load from local installed package (assumes you're using a bundler like Vite/Webpack)
-  const module = await import("marked");
-  marked = module.marked;
-}
+import { marked } from "marked";
 
 const chatLog = document.getElementById("chat-log");
 const promptInput = document.getElementById("prompt-input");
