@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Ollemur",
+    "version": "1.0",
+    "description": "A frontend for interacting with local Ollama models",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icons/icon.png"
+    },
+    "permissions": [],
+    "host_permissions": ["http://localhost:11434/"],
+    "icons": {
+        "16": "icons/icon.png",
+        "48": "icons/icon.png",
+        "128": "icons/icon.png"
+    }
+}
