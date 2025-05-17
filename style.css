@@ -14,11 +14,35 @@
     --radius-lg: 16px;
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('./src/assets/fonts/Nunito-VariableFont_wght.ttf') format('ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('./src/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./src/assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./src/assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('ttf');
+  font-style: italic;
+}
+
+
 body {
     font-family: sans-serif;
     background-color: var(--gray-90);
     margin: 0;
     padding: 0;
+    font-family: Inter, sans-serif;
 }
 p {
     margin: 8px 0;
@@ -31,13 +55,16 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: var(--gray-15);
+    background-color: var(--gray-20);
     color: var(--gray-100);
     padding: 16px 24px;
 }
 header h1 {
     font-size: 24px 44px 24px 24px;
+    font-weight: 400;
     margin: 0;
+    color: #ffffe1;
+    letter-spacing: 0.5;
 }
 #header-content {
     width: 100%;
@@ -57,9 +84,12 @@ header h1 {
     color: var(--gray-70);
     margin: 0 0 4px 0;
     font-size: 12px;
+    font-style: italic;
 }
 #model-name {
-    color: var(--gray-100);
+    color: #ffffe1;
+    font-weight: 100;
+    letter-spacing: 0.5;
     margin: 0;
     font-size: 14px;
 }
@@ -124,6 +154,10 @@ header h1 {
     border: 1px solid var(--gray-90);
     border-radius: var(--radius-small);
     background-color: var(--gray-100);
+    outline: none;
+}
+#prompt-input:focus-visible {
+    border: 1px solid var(--gray-70);
 }
 #buttons-container {
     display: flex;
@@ -134,29 +168,44 @@ header h1 {
 #send-button {
     padding: 8px 24px;
     margin: 16px 0;
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-xsmall);
     color: white;
     border: none;
     cursor: pointer;
-    background-color: var(--gray-30);
+    background-color: #4480ae;
 }
 #send-button:hover {
-    background-color: var(--gray-15);
+    background-color: #2e5c7f;
 }
 #stop-button {
     background-color: var(--gray-30);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 4px;
     width: 32px;
     height: 32px;
     margin: 16px 0;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     color: white;
     border: none;
     cursor: pointer;
     line-height: 0;
+    transition: all 0.1s;
 }
 #stop-button:hover {
     background-color: #b32f2d;
+    width: 180px;
+}
+#stop-button-label {
+    display: none;
+    opacity: 0;
+}
+#stop-button:hover #stop-button-label {
+    display: block;
+    opacity: 1;
 }
 
 .user-message {
@@ -172,7 +221,7 @@ header h1 {
     padding: 8px 12px;
     margin-bottom: 24px;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: var(--radius-xsmall);
     box-shadow: 0 2px 4px 0 rgba(00, 00, 00, 0.16);
 }
 .bot-message {
@@ -189,7 +238,7 @@ header h1 {
     padding: 8px 12px;
     margin-bottom: 24px;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: var(--radius-xsmall);
     box-shadow: 0 2px 4px 0 rgba(00, 00, 00, 0.16);
 }
 
@@ -209,7 +258,7 @@ pre code {
     padding: 8px;
     background-color: #1e1e1e;
     color: #f8f8f2;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-xsmall);
     overflow-x: auto;
     font-family: Consolas, Monaco, "Courier New", monospace;
     font-size: 0.9rem;
@@ -219,7 +268,7 @@ code {
     background-color: #f4f4f4;
     color: #c7254e;
     padding: 4px 8px;
-    border-radius: 4px;
+    border-radius: var(--radius-xsmall);
     font-family: Menlo, Monaco, Consolas, monospace;
     font-size: 0.85rem;
 }
