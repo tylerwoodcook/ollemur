@@ -672,27 +672,17 @@ const chatLog = document.getElementById("chat-log");
 const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
 const currentModel = "llama3.2:latest";
-// Create escape HTML function
-function escapeHTML(str) {
-    return str.replace(/[&<>"']/g, function(match) {
-        switch(match){
-            case '&':
-                return '&amp;';
-            case '<':
-                return '&lt;';
-            case '>':
-                return '&gt;';
-            case '"':
-                return '&quot;';
-            case "'":
-                return '&#039;';
-        }
-    });
-}
+// If don't messages exist, show "no messages" label
+const chatLogMessages = document.getElementById('chat-log');
+if (!document.querySelector('.user-message')) chatLogMessages.innerHTML = '<div class="no-messages"><span style="display: block; font-size: 32px; margin-bottom: 16px;">\uD83E\uDD16</span>Hello, what\'s on your mind?</div>';
+let controller = null; // global or in component state
 // Function to fetch data from the Ollama API
 async function getResponse() {
-    const prompt = (0, _marked.marked).parse(promptInput.value);
-    if (!prompt) return;
+    controller = new AbortController();
+    const rawPrompt = promptInput.value.trim();
+    if (!rawPrompt) return;
+    promptInput.value = ""; // clear the input
+    const prompt = (0, _marked.marked).parse(rawPrompt);
     const response = await fetch("http://localhost:11434/api/generate", {
         method: "POST",
         headers: {
@@ -702,7 +692,8 @@ async function getResponse() {
             model: currentModel,
             prompt: prompt,
             stream: true
-        })
+        }),
+        signal: controller.signal
     });
     if (!response.ok || !response.body) {
         console.error("Error fetching response:", response.status, response.statusText);
@@ -736,6 +727,15 @@ async function getResponse() {
         }
     }
 }
+// Function to stop response output
+function stopResponse() {
+    if (controller) {
+        controller.abort();
+        controller = null;
+    }
+}
+const stopButton = document.getElementById("stop-button");
+stopButton.addEventListener("click", stopResponse);
 // Function to display messages in the chat log
 function displayMessage(sender, message) {
     const messageElement = document.createElement("div");

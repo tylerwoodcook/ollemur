@@ -16,7 +16,7 @@
 
 body {
     font-family: sans-serif;
-    background-color: var(--gray-97);
+    background-color: var(--gray-90);
     margin: 0;
     padding: 0;
 }
@@ -79,9 +79,10 @@ header h1 {
 #chat-log {
     box-sizing: border-box;
     width: 100%;
-    height: 300px;
+    height: 100%;
+    max-height: 65vh;
     border: 1px solid var(--gray-90);
-    background-color: var(--gray-99);
+    background-color: var(--gray-97);
     padding: 16px;
     overflow-y: scroll; /* Enable scrolling */
     border-radius: var(--radius-small);
@@ -169,6 +170,14 @@ header h1 {
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(00,00,00,0.16);
+}
+
+.no-messages {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    text-align: center;
+    opacity: 0.65;
 }
 /* ------------------- */
 

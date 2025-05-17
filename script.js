@@ -5,24 +5,27 @@ const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
 const currentModel = "llama3.2:latest";
 
-// Create escape HTML function
-function escapeHTML(str) {
-  return str.replace(/[&<>"']/g, function (match) {
-    switch (match) {
-      case '&': return '&amp;';
-      case '<': return '&lt;';
-      case '>': return '&gt;';
-      case '"': return '&quot;';
-      case "'": return '&#039;';
-    }
-  });
+
+// If don't messages exist, show "no messages" label
+const chatLogMessages = document.getElementById('chat-log');
+
+if (!document.querySelector('.user-message')) {
+    chatLogMessages.innerHTML = '<div class="no-messages"><span style="display: block; font-size: 32px; margin-bottom: 16px;">🤖</span>Hello, what\'s on your mind?</div>';
 }
+
+let controller = null; // global or in component state
 
 
 // Function to fetch data from the Ollama API
 async function getResponse() {
-    const prompt = marked.parse(promptInput.value);
-    if (!prompt) return;
+    controller = new AbortController();
+
+    const rawPrompt = promptInput.value.trim();
+    if (!rawPrompt) return;
+
+    promptInput.value = ""; // clear the input
+    const prompt = marked.parse(rawPrompt);
+
 
     const response = await fetch("http://localhost:11434/api/generate", {
         method: "POST",
@@ -34,6 +37,7 @@ async function getResponse() {
             prompt: prompt,
             stream: true,
         }),
+        signal: controller.signal
     });
 
     if (!response.ok || !response.body) {
@@ -78,6 +82,18 @@ async function getResponse() {
         }
     }
 }
+
+// Function to stop response output
+function stopResponse() {
+  if (controller) {
+    controller.abort();
+    controller = null;
+  }
+}
+const stopButton = document.getElementById("stop-button");
+stopButton.addEventListener("click", stopResponse);
+
+
 
 // Function to display messages in the chat log
 function displayMessage(sender, message) {

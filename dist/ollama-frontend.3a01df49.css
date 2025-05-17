@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: var(--gray-97);
+  background-color: var(--gray-90);
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -80,10 +80,11 @@ header h1 {
 #chat-log {
   box-sizing: border-box;
   border: 1px solid var(--gray-90);
-  background-color: var(--gray-99);
+  background-color: var(--gray-97);
   border-radius: var(--radius-small);
   width: 100%;
-  height: 300px;
+  height: 100%;
+  max-height: 65vh;
   padding: 16px;
   overflow-y: scroll;
 }
@@ -184,6 +185,14 @@ header h1 {
   margin-bottom: 24px;
   padding: 8px 12px;
   box-shadow: 0 2px 4px #00000029;
+}
+
+.no-messages {
+  box-sizing: border-box;
+  text-align: center;
+  opacity: .65;
+  width: 100%;
+  padding: 40px;
 }
 
 pre code {
