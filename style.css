@@ -20,6 +20,9 @@ body {
     margin: 0;
     padding: 0;
 }
+p {
+    margin: 8px 0;
+}
 
 /* ---------------------- */
 /* --- HEADER SECTION --- */
@@ -27,8 +30,7 @@ body {
 header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: var(--gray-15);
     color: var(--gray-100);
     padding: 16px 24px;
@@ -36,6 +38,20 @@ header {
 header h1 {
     font-size: 24px 44px 24px 24px;
     margin: 0;
+}
+#header-content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
 }
 #model-name-label {
     color: var(--gray-70);
@@ -53,13 +69,19 @@ header h1 {
 /* -------------------- */
 #chat-area {
     margin: 24px;
+    display: flex;
+    justify-content: center;
+}
+#chat-container {
+    width: 100%;
+    max-width: 1000px;
 }
 #chat-log {
     box-sizing: border-box;
     width: 100%;
     height: 300px;
     border: 1px solid var(--gray-90);
-    background-color: var(--gray-100);
+    background-color: var(--gray-99);
     padding: 16px;
     overflow-y: scroll; /* Enable scrolling */
     border-radius: var(--radius-small);
@@ -76,7 +98,7 @@ header h1 {
     background-color: var(--gray-70);
 }
 #chat-log::-webkit-scrollbar-track {
-    background-color: var(--gray-100);
+    background-color: var(--gray-99);
     border-radius: 0 var(--radius-small) var(--radius-small) 0;
 }
 #chat-log::-webkit-scrollbar-corner {
@@ -92,7 +114,10 @@ header h1 {
 #prompt-input {
     box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
     flex: 1;
+    height: auto;
+    max-height: 400px;
     padding: 8px;
     font-size: 16px;
     border: 1px solid var(--gray-90);
@@ -110,4 +135,61 @@ header h1 {
 }
 #send-button:hover {
     background-color: var(--gray-15);
+}
+
+.user-message {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.user-icon {
+    margin: 0 0 8px 0;
+}
+.user-prompt {
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(00,00,00,0.16);
+}
+.bot-message {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px 0;
+}
+.bot-icon {
+    margin: 0 0 8px 0;
+}
+.bot-prompt {
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(00,00,00,0.16);
+}
+/* ------------------- */
+
+/* For fenced code blocks (```...```) */
+pre code {
+  display: block;
+  max-width: 100%;
+  padding: 8px;
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+/* For inline code (`like this`) */
+code {
+  background-color: #f4f4f4;
+  color: #c7254e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
 }

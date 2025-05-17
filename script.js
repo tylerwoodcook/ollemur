@@ -3,11 +3,25 @@ import { marked } from "marked";
 const chatLog = document.getElementById("chat-log");
 const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
-const currentModel = "gemma3:4b";
+const currentModel = "llama3.2:latest";
+
+// Create escape HTML function
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, function (match) {
+    switch (match) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+    }
+  });
+}
+
 
 // Function to fetch data from the Ollama API
 async function getResponse() {
-    const prompt = promptInput.value;
+    const prompt = marked.parse(promptInput.value);
     if (!prompt) return;
 
     const response = await fetch("http://localhost:11434/api/generate", {
@@ -37,11 +51,11 @@ async function getResponse() {
     let fullReply = "";
 
     const userMsg = document.createElement("div");
-    userMsg.innerHTML = `<strong>User:</strong> ${prompt}`;
+    userMsg.innerHTML = `<div class="user-message"><div class="user-icon">🙂</div><div class="user-prompt">${prompt}</div></div>`;
     chatLog.appendChild(userMsg);
 
     const botMsg = document.createElement("div");
-    botMsg.innerHTML = `<strong>Bot:</strong> `;
+    botMsg.innerHTML = `<strong>🤖</strong> `;
     chatLog.appendChild(botMsg);
 
     while (true) {
@@ -56,7 +70,7 @@ async function getResponse() {
                 const data = JSON.parse(line);
                 if (data.response) {
                     fullReply += data.response;
-                    botMsg.innerHTML = `<strong>Bot:</strong><br>${marked.parse(fullReply)}`;
+                    botMsg.innerHTML = `<div class="bot-message"><div class="bot-icon">🤖</div><div class="bot-prompt">${marked.parse(fullReply)}</div></div>`;
                 }
             } catch (err) {
                 console.error("Error parsing JSON chunk:", err, line);
