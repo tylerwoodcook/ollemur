@@ -134,11 +134,18 @@ header h1 {
   font-size: 16px;
 }
 
+#buttons-container {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
 #send-button {
   border-radius: var(--radius-small);
-  background-color: var(--gray-30);
   color: #fff;
   cursor: pointer;
+  background-color: var(--gray-30);
   border: none;
   margin: 16px 0;
   padding: 8px 24px;
@@ -146,6 +153,23 @@ header h1 {
 
 #send-button:hover {
   background-color: var(--gray-15);
+}
+
+#stop-button {
+  background-color: var(--gray-30);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+  margin: 16px 0;
+  padding: 4px;
+  line-height: 0;
+}
+
+#stop-button:hover {
+  background-color: #b32f2d;
 }
 
 .user-message {

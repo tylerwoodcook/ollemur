@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "parcel index.html --open",
+        "start": "parcel src/index.html --open",
         "format": "prettier --write .",
-        "build": "npm run format && npx parcel build index.html"
+        "build": "npm run format && npx parcel build src/index.html"
     },
     "keywords": [],
     "author": "",

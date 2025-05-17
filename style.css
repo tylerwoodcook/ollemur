@@ -125,17 +125,38 @@ header h1 {
     border-radius: var(--radius-small);
     background-color: var(--gray-100);
 }
+#buttons-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
 #send-button {
     padding: 8px 24px;
     margin: 16px 0;
     border-radius: var(--radius-small);
-    background-color: var(--gray-30);
     color: white;
     border: none;
     cursor: pointer;
+    background-color: var(--gray-30);
 }
 #send-button:hover {
     background-color: var(--gray-15);
+}
+#stop-button {
+    background-color: var(--gray-30);
+    padding: 4px;
+    width: 32px;
+    height: 32px;
+    margin: 16px 0;
+    border-radius: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+}
+#stop-button:hover {
+    background-color: #b32f2d;
 }
 
 .user-message {
@@ -152,7 +173,7 @@ header h1 {
     margin-bottom: 24px;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(00,00,00,0.16);
+    box-shadow: 0 2px 4px 0 rgba(00, 00, 00, 0.16);
 }
 .bot-message {
     display: flex;
@@ -169,7 +190,7 @@ header h1 {
     margin-bottom: 24px;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(00,00,00,0.16);
+    box-shadow: 0 2px 4px 0 rgba(00, 00, 00, 0.16);
 }
 
 .no-messages {
@@ -183,22 +204,22 @@ header h1 {
 
 /* For fenced code blocks (```...```) */
 pre code {
-  display: block;
-  max-width: 100%;
-  padding: 8px;
-  background-color: #1e1e1e;
-  color: #f8f8f2;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  font-family: Consolas, Monaco, 'Courier New', monospace;
-  font-size: 0.9rem;
+    display: block;
+    max-width: 100%;
+    padding: 8px;
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.9rem;
 }
 /* For inline code (`like this`) */
 code {
-  background-color: #f4f4f4;
-  color: #c7254e;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-family: Menlo, Monaco, Consolas, monospace;
-  font-size: 0.85rem;
+    background-color: #f4f4f4;
+    color: #c7254e;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85rem;
 }

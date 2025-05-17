@@ -1,41 +1,41 @@
 <!doctype html>
 <html lang="en">
+    <head><script type="importmap">{"imports":{"54oOq":"/ollemur-icon-16px.b8abae1f.png"}}</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ollemur</title>
+        <link rel="stylesheet" href="/ollama-frontend.3a01df49.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ollemur</title>
-    <link rel="stylesheet" href="/ollama-frontend.3a01df49.css">
-</head>
-
-<body>
-    <header>
-        <div id="header-content">
-            <div id="header-left">
-                <img src="/ollemur-icon-48px.5ce3913a.png">
-                <h1>Ollemur</h1>
+    <body>
+        <header>
+            <div id="header-content">
+                <div id="header-left">
+                    <img src="/ollemur-icon-48px.20473abe.png">
+                    <h1>Ollemur</h1>
+                </div>
+                <div id="header-right">
+                    <p id="model-name-label">Current model:</p>
+                    <p id="model-name"></p>
+                </div>
             </div>
-            <div id="header-right">
-                <p id="model-name-label">Current model:</p>
-                <p id="model-name"></p>
+        </header>
+
+        <main id="chat-area">
+            <div id="chat-container">
+                <div id="chat-log">
+                    <!-- Messages will be appended here -->
+                </div>
+                <div id="prompt-area">
+                    <textarea id="prompt-input" rows="4"></textarea>
+                    <div id="buttons-container">
+                        <button id="send-button">Send</button>
+                        <button id="stop-button">✖</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
+        </main>
 
-    <main id="chat-area">
-        <div id="chat-container">
-        <div id="chat-log">
-            <!-- Messages will be appended here -->
-        </div>
-        <div id="prompt-area">
-            <textarea id="prompt-input" rows="4"></textarea>
-            <button id="send-button">Send</button>
-            <button id="stop-button">Stop</button>
-        </div>
-        </div>
-    </main>
-
-    <script type="module" src="/ollama-frontend.3c14d121.js"></script>
-</body>
-
+        <script type="module" src="/ollama-frontend.d29bb997.js"></script>
+    </body>
 </html>
