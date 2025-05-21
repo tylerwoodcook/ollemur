@@ -16,7 +16,7 @@ const chatLogMessages = document.getElementById("chat-log");
 
 if (!document.querySelector(".user-message")) {
     chatLogMessages.innerHTML =
-        '<div class="no-messages"><span style="display: block; font-size: 32px; margin-bottom: 16px;"><img width="48px" height="48px" style="width: 48px; height: auto;" src="' + botImageUrl + '"></span>Hello, what\'s on your mind?</div>';
+        '<div class="no-messages"><span style="display: block; font-size: 32px; margin-bottom: 16px;"><img width="48px" height="48px" style="width: 48px; height: auto;" src="' + botImageUrl + '"></span><p>Hello, what\'s on your mind?</p></div>';
 }
 
 let controller = null; // global or in component state
@@ -90,9 +90,8 @@ async function getResponse() {
         }
     }
 
-        // Add assistant message to history
+    // Add assistant message to history
     chatHistory.push({ role: "assistant", content: fullReply });
-
 }
 
 // Function to stop response output
@@ -128,3 +127,25 @@ function displayCurrentModel() {
     modelContainer.innerText = currentModel;
 }
 displayCurrentModel();
+
+
+// Function to export chat history as JSON
+function exportChatHistoryAsJSON() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const filename = `chat-history-${month}-${day}-${year}_${hours}-${minutes}.json`;
+    const blob = new Blob([JSON.stringify(chatHistory, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+window.exportChatHistoryAsJSON = exportChatHistoryAsJSON; // required to attach the function to window so it's available from HTML

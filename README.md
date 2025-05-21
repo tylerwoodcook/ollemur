@@ -18,3 +18,9 @@ You have to have Ollama installed to run Ollemur. In the future, I hope to strea
 - `npm run build` to build/minify the app files, tree-shake unused code, compress assets and hash filenames for cache busting - also runs `format`.
 - `npm run format` to format all files with Prettier.
 - `npm run start` to start the dev server
+
+## Features
+
+- Chat with your preferred LLM via Ollama API
+- Stop bot output mid-response if needed
+- Export chat history as JSON

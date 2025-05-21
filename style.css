@@ -16,17 +16,6 @@
 }
 
 @font-face {
-  font-family: 'Nunito';
-  src: url('./src/assets/fonts/Nunito-VariableFont_wght.ttf') format('ttf');
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Nunito';
-  src: url('./src/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('ttf');
-  font-style: italic;
-}
-
-@font-face {
   font-family: 'Inter';
   src: url('./src/assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
   font-style: normal;
@@ -44,11 +33,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: Inter, sans-serif;
+    color: var(--gray-15);
 }
 p {
     margin: 16px 0;
     line-height: 1.4;
 }
+textarea {
+    font-family: Inter, sans-serif;
+}
+textarea::placeholder {
+  color: var(--gray-50);
+  opacity: 1; /* Optional: makes sure it's fully visible */
+}
+
 
 /* ---------------------- */
 /* --- HEADER SECTION --- */
@@ -117,7 +115,7 @@ header h1 {
     background-color: var(--gray-97);
     padding: 16px;
     overflow-y: scroll; /* Enable scrolling */
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-small) var(--radius-small) 0 0;
 }
 #chat-log::-webkit-scrollbar {
     width: 6px;
@@ -175,6 +173,7 @@ header h1 {
     border: none;
     cursor: pointer;
     background-color: #4480ae;
+    transition: all 0.1s;
 }
 #send-button:hover {
     background-color: #2e5c7f;
@@ -278,4 +277,58 @@ header h1 {
 .bot-prompt li {
     line-height: 1.3;
     margin-bottom: 16px;
+}
+
+/* ------------------- */
+/* --- OPTIONS BAR --- */
+/* ------------------- */
+#options-container {
+    border-radius: 0 0 var(--radius-small) var(--radius-small);
+    background-color: var(--gray-97);
+    padding: 4px;
+    display: flex;
+    justify-content: flex-end;
+}
+#export-json-button {
+    border: none;
+    border-radius: var(--radius-xsmall);
+    background-color: var(--gray-97);
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--gray-30);
+    transition: all 0.1s;
+    cursor: pointer;
+}
+#export-json-button:hover {
+    background-color: var(--gray-90);
+}
+
+
+
+
+/* --------------------------- */
+/* --- MATERIAL ICONS FONT --- */
+/* --------------------------- */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/src/assets/fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* You can adjust size here or inline */
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }

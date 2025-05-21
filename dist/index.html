@@ -26,8 +26,11 @@
                 <div id="chat-log">
                     <!-- Messages will be appended here -->
                 </div>
+                <div id="options-container">
+                    <button id="export-json-button" onclick="exportChatHistoryAsJSON();"><span class="material-icons" style="color: var(--gray-30); margin-right: 4px; font-size: 14px">ios_share</span> JSON</button>
+                </div>
                 <div id="prompt-area">
-                    <textarea id="prompt-input" rows="4"></textarea>
+                    <textarea id="prompt-input" placeholder="Ask anything..." rows="4"></textarea>
                     <div id="buttons-container">
                         <button id="send-button">Send</button>
                         <button id="stop-button"><span id="stop-button-label">Stop Response </span>✖</button>
