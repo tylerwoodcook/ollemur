@@ -249,10 +249,12 @@ header h1 {
     text-align: center;
     opacity: 0.65;
 }
-/* ------------------- */
 
-/* For fenced code blocks (```...```) */
-pre code {
+/* --------------------- */
+/* --- BOT RESPONSES --- */
+/* --------------------- */
+
+.bot-prompt pre code { /* For fenced code blocks (```...```) */
     display: block;
     max-width: 100%;
     padding: 8px;
@@ -263,12 +265,15 @@ pre code {
     font-family: Consolas, Monaco, "Courier New", monospace;
     font-size: 0.9rem;
 }
-/* For inline code (`like this`) */
-code {
+.bot-prompt code { /* For inline code (`like this`) */
     background-color: #f4f4f4;
     color: #c7254e;
     padding: 4px 8px;
     border-radius: var(--radius-xsmall);
     font-family: Menlo, Monaco, Consolas, monospace;
     font-size: 0.85rem;
+}
+.bot-prompt li {
+    line-height: 1.3;
+    margin-bottom: 16px;
 }

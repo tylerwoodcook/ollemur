@@ -674,6 +674,7 @@ const chatLog = document.getElementById("chat-log");
 const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
 const currentModel = "llama3.2:latest";
+let chatHistory = [];
 // If don't messages exist, show "no messages" label
 const chatLogMessages = document.getElementById("chat-log");
 if (!document.querySelector(".user-message")) chatLogMessages.innerHTML = '<div class="no-messages"><span style="display: block; font-size: 32px; margin-bottom: 16px;"><img width="48px" height="48px" style="width: 48px; height: auto;" src="' + botImageUrl + '"></span>Hello, what\'s on your mind?</div>';
@@ -685,14 +686,19 @@ async function getResponse() {
     if (!rawPrompt) return;
     promptInput.value = ""; // clear the input
     const prompt = (0, _marked.marked).parse(rawPrompt);
-    const response = await fetch("http://localhost:11434/api/generate", {
+    // Add user message to history
+    chatHistory.push({
+        role: "user",
+        content: rawPrompt
+    });
+    const response = await fetch("http://localhost:11434/api/chat", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
             model: currentModel,
-            prompt: prompt,
+            messages: chatHistory,
             stream: true
         }),
         signal: controller.signal
@@ -720,14 +726,19 @@ async function getResponse() {
         const lines = chunk.split("\n").filter((line)=>line.trim() !== "");
         for (const line of lines)try {
             const data = JSON.parse(line);
-            if (data.response) {
-                fullReply += data.response;
+            if (data.message && data.message.content) {
+                fullReply += data.message.content;
                 botMsg.innerHTML = `<div class="bot-message"><div class="bot-icon"><img width="24px" height="24px" style="width: 24px; height: auto;" src="${botImageUrl}"></div><div class="bot-prompt">${(0, _marked.marked).parse(fullReply)}</div></div>`;
             }
         } catch (err) {
             console.error("Error parsing JSON chunk:", err, line);
         }
     }
+    // Add assistant message to history
+    chatHistory.push({
+        role: "assistant",
+        content: fullReply
+    });
 }
 // Function to stop response output
 function stopResponse() {

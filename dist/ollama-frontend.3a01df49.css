@@ -271,7 +271,7 @@ header h1 {
   padding: 40px;
 }
 
-pre code {
+.bot-prompt pre code {
   color: #f8f8f2;
   border-radius: var(--radius-xsmall);
   background-color: #1e1e1e;
@@ -283,12 +283,17 @@ pre code {
   overflow-x: auto;
 }
 
-code {
+.bot-prompt code {
   color: #c7254e;
   border-radius: var(--radius-xsmall);
   background-color: #f4f4f4;
   padding: 4px 8px;
   font-family: Menlo, Monaco, Consolas, monospace;
   font-size: .85rem;
+}
+
+.bot-prompt li {
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
 /*# sourceMappingURL=ollama-frontend.3a01df49.css.map */

@@ -8,6 +8,9 @@ const promptInput = document.getElementById("prompt-input");
 const sendButton = document.getElementById("send-button");
 const currentModel = "llama3.2:latest";
 
+let chatHistory = [];
+
+
 // If don't messages exist, show "no messages" label
 const chatLogMessages = document.getElementById("chat-log");
 
@@ -28,14 +31,18 @@ async function getResponse() {
     promptInput.value = ""; // clear the input
     const prompt = marked.parse(rawPrompt);
 
-    const response = await fetch("http://localhost:11434/api/generate", {
+        // Add user message to history
+    chatHistory.push({ role: "user", content: rawPrompt });
+
+
+    const response = await fetch("http://localhost:11434/api/chat", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
             model: currentModel,
-            prompt: prompt,
+            messages: chatHistory,
             stream: true,
         }),
         signal: controller.signal,
@@ -73,8 +80,8 @@ async function getResponse() {
         for (const line of lines) {
             try {
                 const data = JSON.parse(line);
-                if (data.response) {
-                    fullReply += data.response;
+                if (data.message && data.message.content) {
+                    fullReply += data.message.content;
                     botMsg.innerHTML = `<div class="bot-message"><div class="bot-icon"><img width="24px" height="24px" style="width: 24px; height: auto;" src="${botImageUrl}"></div><div class="bot-prompt">${marked.parse(fullReply)}</div></div>`;
                 }
             } catch (err) {
@@ -82,6 +89,10 @@ async function getResponse() {
             }
         }
     }
+
+        // Add assistant message to history
+    chatHistory.push({ role: "assistant", content: fullReply });
+
 }
 
 // Function to stop response output
