@@ -2,6 +2,7 @@
   --gray-100: #fbfcff;
   --gray-97: #f1f6ff;
   --gray-90: #d8e1f3;
+  --gray-83: #c3cfe6;
   --gray-70: #a7b5d0;
   --gray-50: #707d96;
   --gray-30: #434d5f;
@@ -45,7 +46,8 @@ body {
 }
 
 p {
-  margin: 8px 0;
+  margin: 16px 0;
+  line-height: 1.4;
 }
 
 header {
@@ -120,12 +122,12 @@ header h1 {
 }
 
 #chat-log::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
   height: 8px;
 }
 
 #chat-log::-webkit-scrollbar-thumb {
-  background-color: var(--gray-90);
+  background-color: var(--gray-83);
   border-radius: var(--radius-med);
 }
 
